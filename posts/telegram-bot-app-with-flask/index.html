@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Telegram Bot App With Flask | Michael&#39;s Blog</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining lost credit cards.
+There are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don&rsquo;t have to specify strict rules or use if and else statements a lot, but another problem is that with AI Bots we need data to train our bot.">
+<meta name="author" content="Michael Jalloh">
+<link rel="canonical" href="https://michael-jalloh.github.io/posts/telegram-bot-app-with-flask/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.e21185e6c4b43ff34c81666f70aa4f80140274057866888c0a5c28addc9b7fd2.css" integrity="sha256-4hGF5sS0P/NMgWZvcKpPgBQCdAV4ZoiMClwordybf9I=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://michael-jalloh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://michael-jalloh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://michael-jalloh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://michael-jalloh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://michael-jalloh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.68.3" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Telegram Bot App With Flask" />
+<meta property="og:description" content="Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining lost credit cards.
+There are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don&rsquo;t have to specify strict rules or use if and else statements a lot, but another problem is that with AI Bots we need data to train our bot." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://michael-jalloh.github.io/posts/telegram-bot-app-with-flask/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-18T13:32:09&#43;00:00" />
+<meta property="article:modified_time" content="2022-01-18T13:32:09&#43;00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Telegram Bot App With Flask"/>
+<meta name="twitter:description" content="Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining lost credit cards.
+There are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don&rsquo;t have to specify strict rules or use if and else statements a lot, but another problem is that with AI Bots we need data to train our bot."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Telegram Bot App With Flask",
+      "item": "https://michael-jalloh.github.io/posts/telegram-bot-app-with-flask/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Telegram Bot App With Flask",
+  "name": "Telegram Bot App With Flask",
+  "description": "Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining lost credit cards.\nThere are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don\u0026rsquo;t have to specify strict rules or use if and else statements a lot, but another problem is that with AI Bots we need data to train our bot.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining lost credit cards.\nThere are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don’t have to specify strict rules or use if and else statements a lot, but another problem is that with AI Bots we need data to train our bot. Most times we generate data and train our bot but we also forget that the chats our bots have are actually data we can use to retrain our bot but most times we don’t keep those chats. Well, let’s fix that.\nWe going to be building a bot system where our messages are logged for later date review. We will use telegram webhooks to handle our bot messaging. Chatbots have been around for a while now, but early chatbots had a serious problem they weren’t intelligent. This created a situation where chatbots most of the time in a conversation couldn’t understand the user. Now we have the power of AI to help provide intelligence for chatbots.\nPrerequisites This post assumes you already create a bot with the BotFather on telegram and you have your bot token. We will need some libraries to help make the bot easier.\nflask flask-sqlalchemy python-dotenv python-telegram-bot These are some of the libraries we will be using. Let’s start. We will be using python 3.8 but any python above python 3.8 should work.\nVirtual Environment Let’s create a virtual environment to separate our systems.\npython3.8 -m venv venv now activate the virtual environment\nsource venv/bin/activate Now let’s install our dependencies\npip install flask flask-sqlalchemy python-dotenv python-telegram-bot Setup Let’s create all the files we gonna be needing\ntouch wsgi.py touch .env mkdir flaskapp touch flaskapp/__init__.py When we done we will have a folder like this\n. ├── flaskapp │ └── __init__.py ├── venv |── wsgi.py └── .env Our App Let’s start creating out app.\nSet Environment Variables  .env\n BOT_TOKEN={your-bot-token} We add our token into our environment file. This allows us to use secret tokens and not add them to our shell or our repo if we use a system like git.\nSetup Imports  flaskapp/__init__.py\n from flask import Flask, render_template, request from flask_sqlalchemy import SQLAlchemy from dotenv import load_dotenv import os import telegram import secrets from datetime import datetime load_dotenv() We start by importing the libraries we will be using and we use load_dotenv() to load our variables from .env.\n Setup Ngrok We will be using ngrok for testing so let’s install ngrok and run it.\nsudo apt-get install ngrok run ngrok to provide a tunnel for us.\nngrok http 5000  output\n Session Status online Version 2.3.40 Region United States (us) Web Interface http://127.0.0.1:4040 Forwarding http://9f36-197-255-204-89.ngrok.io - http://loca Forwarding https://9f36-197-255-204-89.ngrok.io - http://loc Connections ttl opn rt1 rt5 p50 p90 0 0 0.00 0.00 0.00 0.00 copy the https link, we will need it\n Set up flask app   flaskapp/__init__.py\n app = Flask(__name__) app.secret_key = secrets.token_hex(10) app.config['SQLALCHEMY_DATABASE_URI'] = \"sqlite:///app.db\" db = SQLAlchemy(app) token = os.getenv(\"BOT_TOKEN\") url = \"https://9f36-197-255-204-89.ngrok.io\" secret_bot_url = secrets.token_hex(10) bot = telegram.Bot(token=token) So we set up the flask app, our database. We also collect our bot token from our environment.\nWe set our url with the link from ngrok, if deploying on the cloud change it with your domain. The secret_bot_url will be used to create a random url route for our telegram bot webhook.\nDatabase Model  Let’s create a Message model that will be used to save our data to our database.\n flaskapp/__init__.py\n class Message(db.Model): id = db.Column(db.Integer, primary_key=True) text = db.Column(db.String(1024)) chat_id = db.Column(db.String(120), index=True) msg_id = db.Column(db.String(120), index=True) response = db.Column(db.String(1024)) timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow) Now we going to create the database and set the webhook\n flaskapp/__init__.py\n def set_webhook(): s = bot.setWebhook(f\"{url}{secret_url}\") if s: print(\"[*] Webhook Set\") else: print(\"[*] WebHook failed\") exit() def set_up(): set_webhook() db.create_all() These functions help us set up our bots and create the database if it hasn’t been created yet.\nCreate routes  flaskapp/__init__.py\n @app.route(\"/\") def index(): return \"Hello\" @app.get(\"/messages\") def get_messages(): messages = [message.json() for message in Message.query.all()] return json.dumps(messges) The messages route will be return all the messages in our database.\n@app.post(f\"/{secret_url}\") def webhook(): message_data = telegram.Update.de_json(request.get_json(True), bot) chat_id = message_data.message.chat.id msg_id = message_data.message.message_id text = message_data.message.text.encode(\"utf-8\").decode() reply = text[::-1] msg = Message() msg.msg_id = msg_id msg.text = text msg.chat_id = chat_id msg.response = reply db.session.add(msg) db.session.commit() bot.sendMessage(chat_id=chat_id, text=reply) return \"OK\" The random secret_url we created is used for the webhook route. This will help with spam as the url is always randomly created and then set up as our webhook. We use the telegram library to parse the message the is sent to us, It’s easier than parsing the posted data ourselves.\nIn this example, we are just reversing the text and sending it back, but we could easily change that to an AI-generated response.\nRun Open the wsgi.py\n wsgi.py\n from flaskapp import app To run our app we use flask run\nflask run and thats it. Good luck…\n",
+  "wordCount" : "846",
+  "inLanguage": "en",
+  "datePublished": "2022-01-18T13:32:09Z",
+  "dateModified": "2022-01-18T13:32:09Z",
+  "author":{
+    "@type": "Person",
+    "name": "Michael Jalloh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://michael-jalloh.github.io/posts/telegram-bot-app-with-flask/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Michael's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://michael-jalloh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://michael-jalloh.github.io" accesskey="h" title="Michael&#39;s Blog (Alt + H)">Michael&#39;s Blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://michael-jalloh.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://michael-jalloh.github.io/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://michael-jalloh.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Telegram Bot App With Flask
+    </h1>
+    <div class="post-meta"><span title='2022-01-18 13:32:09 +0000 UTC'>January 18, 2022</span>&nbsp;·&nbsp;Michael Jalloh
+
+</div>
+  </header> 
+  <div class="post-content"><p>Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite
+chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining
+lost credit cards.</p>
+<p>There are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don&rsquo;t have to specify strict rules or use <strong>if</strong> and <strong>else</strong> statements a lot, but another problem is that with AI Bots we need data to train our bot. Most times we generate data and train our bot but we also forget that the chats our bots have are actually data we can use to retrain our bot but most times we don&rsquo;t keep those chats. Well, let&rsquo;s fix that.</p>
+<p>We going to be building a bot system where our messages are logged for later date review. We will use telegram webhooks to handle our bot messaging. Chatbots have been around for a while now, but early chatbots had a serious problem they weren&rsquo;t intelligent. This created a situation where chatbots most of the time in a conversation couldn&rsquo;t understand the user. Now we have the power of AI to help provide intelligence for chatbots.</p>
+<h2 id="prerequisites">Prerequisites<a hidden class="anchor" aria-hidden="true" href="#prerequisites">#</a></h2>
+<p>This post assumes you already create a bot with the <code>BotFather</code> on telegram and you have your bot token. We will need some libraries to help make the bot easier.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">flask
+flask-sqlalchemy
+python-dotenv
+python-telegram-bot
+</code></pre></div><p>These are some of the libraries we will be using. Let&rsquo;s start. We will be using python 3.8 but any python above python 3.8 should work.</p>
+<h2 id="virtual-environment">Virtual Environment<a hidden class="anchor" aria-hidden="true" href="#virtual-environment">#</a></h2>
+<p>Let&rsquo;s create a virtual environment to separate our systems.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">python3.8 -m venv venv
+</code></pre></div><p>now activate the virtual environment</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">source venv/bin/activate
+</code></pre></div><p>Now let&rsquo;s install our dependencies</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pip install flask flask-sqlalchemy python-dotenv python-telegram-bot
+</code></pre></div><h2 id="setup">Setup<a hidden class="anchor" aria-hidden="true" href="#setup">#</a></h2>
+<p>Let&rsquo;s create all the files we gonna be needing</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">touch wsgi.py
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">touch .env
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir flaskapp
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">touch flaskapp/__init__.py
+</code></pre></div><p>When we done we will have a folder like this</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
+├── flaskapp
+│   └── __init__.py
+├── venv
+|── wsgi.py
+└── .env
+
+</code></pre></div><h2 id="our-app">Our App<a hidden class="anchor" aria-hidden="true" href="#our-app">#</a></h2>
+<p>Let&rsquo;s start creating out app.</p>
+<h3 id="set-environment-variables">Set Environment Variables<a hidden class="anchor" aria-hidden="true" href="#set-environment-variables">#</a></h3>
+<blockquote>
+<p><code>.env</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">BOT_TOKEN={your-bot-token}
+</code></pre></div><p>We add our token into our environment file. This allows us to use secret tokens and not add them to our shell or our repo if we use a system like git.</p>
+<h3 id="setup-imports">Setup Imports<a hidden class="anchor" aria-hidden="true" href="#setup-imports">#</a></h3>
+<blockquote>
+<p><code>flaskapp/__init__.py</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">from</span> <span style="font-weight:bold">flask</span> <span style="font-weight:bold">import</span> Flask, render_template, request
+<span style="font-weight:bold">from</span> <span style="font-weight:bold">flask_sqlalchemy</span> <span style="font-weight:bold">import</span> SQLAlchemy
+<span style="font-weight:bold">from</span> <span style="font-weight:bold">dotenv</span> <span style="font-weight:bold">import</span> load_dotenv
+<span style="font-weight:bold">import</span> <span style="font-weight:bold">os</span>
+<span style="font-weight:bold">import</span> <span style="font-weight:bold">telegram</span>
+<span style="font-weight:bold">import</span> <span style="font-weight:bold">secrets</span>
+<span style="font-weight:bold">from</span> <span style="font-weight:bold">datetime</span> <span style="font-weight:bold">import</span> datetime
+
+load_dotenv()
+</code></pre></div><p>We start by importing the libraries we will be using and we use <code>load_dotenv()</code> to load our variables from <code>.env</code>.</p>
+<h1 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h1>
+<h3 id="setup-ngrok">Setup Ngrok<a hidden class="anchor" aria-hidden="true" href="#setup-ngrok">#</a></h3>
+<p>We will be using <code>ngrok</code> for testing so let&rsquo;s install ngrok and run it.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install ngrok
+</code></pre></div><p>run <code>ngrok</code> to provide a tunnel for us.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ngrok http 5000
+</code></pre></div><blockquote>
+<p>output</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Session Status                online                                                                   
+Version                       2.3.40                                            
+Region                        United States (us)                                
+Web Interface                 http://127.0.0.1:4040                             
+Forwarding                    http://9f36-197-255-204-89.ngrok.io -&gt; http://loca
+Forwarding                    https://9f36-197-255-204-89.ngrok.io -&gt; http://loc
+                                                                                
+Connections                   ttl     opn     rt1     rt5     p50     p90       
+                              0       0       0.00    0.00    0.00    0.00 
+</code></pre></div><p>copy the <code>https</code> link, we will need it</p>
+<h1 id="heading-1"><a hidden class="anchor" aria-hidden="true" href="#heading-1">#</a></h1>
+<h3 id="set-up-flask-app">Set up flask app<a hidden class="anchor" aria-hidden="true" href="#set-up-flask-app">#</a></h3>
+<h1 id="heading-2"><a hidden class="anchor" aria-hidden="true" href="#heading-2">#</a></h1>
+<blockquote>
+<p><code>flaskapp/__init__.py</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">app = Flask(__name__)
+app.secret_key = secrets.token_hex(10)
+app.config[<span style="font-style:italic">&#39;SQLALCHEMY_DATABASE_URI&#39;</span>] = <span style="font-style:italic">&#34;sqlite:///app.db&#34;</span>
+
+db = SQLAlchemy(app)
+
+token = os.getenv(<span style="font-style:italic">&#34;BOT_TOKEN&#34;</span>) 
+url = <span style="font-style:italic">&#34;https://9f36-197-255-204-89.ngrok.io&#34;</span>
+
+secret_bot_url = secrets.token_hex(10)
+
+bot = telegram.Bot(token=token)
+</code></pre></div><p>So we set up the flask app, our database. We also collect our bot token from our environment.</p>
+<p>We set our <code>url</code> with the link from <code>ngrok</code>, if deploying on the cloud change it with your domain.
+The <code>secret_bot_url</code> will be used to create a random url route for our telegram bot webhook.</p>
+<h3 id="database-model">Database Model<a hidden class="anchor" aria-hidden="true" href="#database-model">#</a></h3>
+<h1 id="heading-3"><a hidden class="anchor" aria-hidden="true" href="#heading-3">#</a></h1>
+<p>Let&rsquo;s create a Message model that will be used to save our data to our database.</p>
+<blockquote>
+<p><code>flaskapp/__init__.py</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">class</span> <span style="font-weight:bold">Message</span>(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(1024))
+    chat_id = db.Column(db.String(120), index=True)
+    msg_id = db.Column(db.String(120), index=True)
+    response = db.Column(db.String(1024))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+</code></pre></div><p>Now we going to create the database and set the webhook</p>
+<blockquote>
+<p><code>flaskapp/__init__.py</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">def</span> set_webhook():
+    s = bot.setWebhook(f<span style="font-style:italic">&#34;{url}{secret_url}&#34;</span>)
+    <span style="font-weight:bold">if</span> s:
+        <span style="font-weight:bold">print</span>(<span style="font-style:italic">&#34;[*] Webhook Set&#34;</span>)
+    <span style="font-weight:bold">else</span>:
+        <span style="font-weight:bold">print</span>(<span style="font-style:italic">&#34;[*] WebHook failed&#34;</span>)
+        exit()
+
+<span style="font-weight:bold">def</span> set_up():
+    set_webhook()
+    db.create_all()
+</code></pre></div><p>These functions help us set up our bots and create the database if it hasn&rsquo;t been created yet.</p>
+<h3 id="create-routes">Create routes<a hidden class="anchor" aria-hidden="true" href="#create-routes">#</a></h3>
+<blockquote>
+<p><code>flaskapp/__init__.py</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@app.route(<span style="font-style:italic">&#34;/&#34;</span>)
+<span style="font-weight:bold">def</span> index():
+    <span style="font-weight:bold">return</span> <span style="font-style:italic">&#34;Hello&#34;</span>
+
+@app.get(<span style="font-style:italic">&#34;/messages&#34;</span>)
+<span style="font-weight:bold">def</span> get_messages():
+    messages = [message.json() <span style="font-weight:bold">for</span> message <span style="font-weight:bold">in</span> Message.query.all()]
+    <span style="font-weight:bold">return</span> json.dumps(messges)
+</code></pre></div><p>The <code>messages</code> route will be return all the messages in our database.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">@app.post(f<span style="font-style:italic">&#34;/{secret_url}&#34;</span>)
+<span style="font-weight:bold">def</span> webhook():
+    message_data = telegram.Update.de_json(request.get_json(True), bot)
+    chat_id = message_data.message.chat.id
+    msg_id = message_data.message.message_id
+    text = message_data.message.text.encode(<span style="font-style:italic">&#34;utf-8&#34;</span>).decode()
+    reply = text[::-1]
+    msg = Message()
+    msg.msg_id = msg_id
+    msg.text = text
+    msg.chat_id = chat_id
+    msg.response = reply
+    db.session.add(msg)
+    db.session.commit()
+    bot.sendMessage(chat_id=chat_id, text=reply)
+    <span style="font-weight:bold">return</span> <span style="font-style:italic">&#34;OK&#34;</span>
+</code></pre></div><p>The random <code>secret_url</code> we created is used for the <code>webhook</code> route. This will help with spam as the url is always randomly created and then set up as our webhook. We use the <code>telegram</code> library to parse the message the is sent to us, It&rsquo;s easier than parsing the posted data ourselves.</p>
+<p>In this example, we are just reversing the text and sending it back, but we could easily change that to an AI-generated response.</p>
+<h3 id="run">Run<a hidden class="anchor" aria-hidden="true" href="#run">#</a></h3>
+<p>Open the <code>wsgi.py</code></p>
+<blockquote>
+<p><code>wsgi.py</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="font-weight:bold">from</span> <span style="font-weight:bold">flaskapp</span> <span style="font-weight:bold">import</span> app
+</code></pre></div><p>To run our app we use  <code>flask run</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">flask run
+</code></pre></div><p>and thats it. Good luck&hellip;</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://michael-jalloh.github.io">Michael&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

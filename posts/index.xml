@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Michael&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Jan 2022 02:07:58 +0000</lastBuildDate><atom:link href="https://michael-jalloh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jan 2022 13:32:09 +0000</lastBuildDate><atom:link href="https://michael-jalloh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Telegram Bot App With Flask</title>
+      <link>https://michael-jalloh.github.io/posts/telegram-bot-app-with-flask/</link>
+      <pubDate>Tue, 18 Jan 2022 13:32:09 +0000</pubDate>
+      
+      <guid>https://michael-jalloh.github.io/posts/telegram-bot-app-with-flask/</guid>
+      <description>Telegram bots are great. Bots can provide an avenue for businesses to provide customer services 24/7 on their favorite chat app (Telegram, Whatsapp, Messenger, etc). Bots can handle customer services from handling food orders to declining lost credit cards.
+There are different ways to handle logic, from rule-based systems to AI-powered bots. With AI bots we don&amp;rsquo;t have to specify strict rules or use if and else statements a lot, but another problem is that with AI Bots we need data to train our bot.</description>
+    </item>
+    
     <item>
       <title>Raspberry Pi Network Discovery</title>
       <link>https://michael-jalloh.github.io/posts/raspberry_pi_network_discovery/</link>
